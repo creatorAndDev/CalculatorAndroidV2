@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     EditText calcDialogDisplay;
 
     /**Переменные кнопок*/
-    TextView binary;
+//    TextView binary;
     TextView allClear;
     TextView seven;
     TextView eight;
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     int currentOperation = 0;
     int nextOperation;
 
-    /**Прибавление*/
+    /**Сложение*/
     final static int ADD = 1;
 
     /**Вычитание*/
@@ -61,11 +61,11 @@ public class MainActivity extends AppCompatActivity {
     /**Равно*/
     final static int EQUALS = 5;
 
-    /**Нахождение целого значение из двоичного числа*/
+//    /**Нахождение целого значение из двоичного числа*/
 //    final static int DECIMAL = 6;
 
-    /**Нахождение двоичного числа из целого*/
-    final static int BINARY = 7;
+//    /**Нахождение двоичного числа из целого*/
+//    final static int BINARY = 7;
 
     final static int CLEAR = 1;
     final static int DONT_CLEAR = 0;
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         calcDialogDisplay = (EditText) findViewById(R.id.viewDisplay);
-        binary = (TextView) findViewById(R.id.buttonDot);
+//        binary = (TextView) findViewById(R.id.buttonDot);
         allClear = (TextView) findViewById(R.id.buttonC);
         seven = (TextView) findViewById(R.id.button7);
         eight = (TextView) findViewById(R.id.button8);
@@ -276,6 +276,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        plus.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                calcLogic(ADD);
+            }
+        });
+
         equals.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -285,41 +293,41 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        binary.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                calcLogic(BINARY);
-
-            }
-        });
+//        binary.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                calcLogic(BINARY);
+//
+//            }
+//        });
     }
 
     /*Функция перевода из десятичного в двоичное значение*/
-    private float decToBin(float bin) {
-        int i, b;
-        long result = 0;
-
-        for(i=0; bin > 0; i++)  {
-            b = (int) (bin % 2);
-            bin = (bin-b)/2;
-            result += b * Math.pow(10,i);
-        }
-        return result;
-    }
+//    private float decToBin(float bin) {
+//        int i, b;
+//        long result = 0;
+//
+//        for(i=0; bin > 0; i++)  {
+//            b = (int) (bin % 2);
+//            bin = (bin-b)/2;
+//            result += b * Math.pow(10,i);
+//        }
+//        return result;
+//    }
 
     /*Функция перевода из двличного в десятичное значение*/
-    private float binToDec(float dec) {
-        int result = 0;
-        int mult = 1;
-
-        while(dec > 0) {
-            result += mult * ((int)dec % 10);
-            dec /= 10;
-            mult *= 2;
-        }
-        return result;
-    }
+//    private float binToDec(float dec) {
+//        int result = 0;
+//        int mult = 1;
+//
+//        while(dec > 0) {
+//            result += mult * ((int)dec % 10);
+//            dec /= 10;
+//            mult *= 2;
+//        }
+//        return result;
+//    }
 
     /*Функция расчета введенных значений*/
     private void calcLogic(int operator) {
@@ -334,7 +342,7 @@ public class MainActivity extends AppCompatActivity {
 
         switch (currentOperation) {
 
-    /*Прибавление*/
+            /**Прибавление*/
             case ADD:
                 number1 = result.get(0);
                 number2 = result.get(1);
@@ -346,7 +354,7 @@ public class MainActivity extends AppCompatActivity {
                 calcDialogDisplay.setText(String.format("%.0f", result.get(0)));
                 break;
 
-      /*Вычитание*/
+            /**Вычитание*/
             case SUBTRACT:
                 number1 = result.get(0);
                 number2 = result.get(1);
@@ -358,7 +366,7 @@ public class MainActivity extends AppCompatActivity {
                 calcDialogDisplay.setText(String.format("%.0f", result.get(0)));
                 break;
 
-      /*Умножение*/
+            /**Умножение*/
             case MULTIPLY:
                 number1 = result.get(0);
                 number2 = result.get(1);
@@ -369,7 +377,8 @@ public class MainActivity extends AppCompatActivity {
 
                 calcDialogDisplay.setText(String.format("%.0f", result.get(0)));
                 break;
-       /*Деление*/
+
+            /**Деление*/
             case DIVISION:
                 number1 = result.get(0);
                 number2 = result.get(1);
@@ -381,7 +390,7 @@ public class MainActivity extends AppCompatActivity {
                 calcDialogDisplay.setText(String.format("%.0f", result.get(0)));
                 break;
 
-        /*Получание двоичного числа*/
+//          /**Получание двоичного числа*/
 //            case DECIMAL:
 //                number2 = result.get(1);
 //
@@ -392,16 +401,16 @@ public class MainActivity extends AppCompatActivity {
 //                calcDialogDisplay.setText(String.format("%.0f", result.get(0)));
 //                break;
 
-       /*Получение десятичного числа*/
-            case BINARY:
-                number2 = result.get(1);
-
-                result.removeAll(result);
-
-                result.add(binToDec(number2));
-
-                calcDialogDisplay.setText(String.format("%.0f", result.get(0)));
-                break;
+//            /**Получение десятичного числа*/
+//            case BINARY:
+//                number2 = result.get(1);
+//
+//                result.removeAll(result);
+//
+//                result.add(binToDec(number2));
+//
+//                calcDialogDisplay.setText(String.format("%.0f", result.get(0)));
+//                break;
         }
 
         clearCalcDisplay = CLEAR;
