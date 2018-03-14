@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         registerListeners();
     }
 
-    /*Обработка нажатия на экран*/
+    /**Обработка нажатия на экран*/
     public void registerListeners () {
 
         seven.setOnClickListener(new View.OnClickListener() {
@@ -146,7 +146,9 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                calcLogic(DIVISION);
+                if(!calcDialogDisplay.getText().toString().isEmpty()) {
+                    calcLogic(DIVISION);
+                }
             }
         });
 
@@ -225,7 +227,9 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                calcLogic(MULTIPLY);
+                if(!calcDialogDisplay.getText().toString().isEmpty()) {
+                    calcLogic(MULTIPLY);
+                }
             }
         });
 
@@ -272,7 +276,9 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                calcLogic(SUBTRACT);
+                if(!calcDialogDisplay.getText().toString().isEmpty()) {
+                    calcLogic(SUBTRACT);
+                }
             }
         });
 
@@ -280,7 +286,9 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                calcLogic(ADD);
+                if(!calcDialogDisplay.getText().toString().isEmpty()) {
+                    calcLogic(ADD);
+                }
             }
         });
 
@@ -288,7 +296,9 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                calcLogic(EQUALS);
+                if(!calcDialogDisplay.getText().toString().isEmpty()) {
+                    calcLogic(EQUALS);
+                }
 
             }
         });
