@@ -222,20 +222,6 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent">
                             <Button
-                                android:id="@+id/buttonAdd"
-                                android:layout_weight="1"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:text="@string/plus"
-                                android:textColor="@color/colorBlue"
-                                android:textSize="40sp"
-                                android:background="@color/colorAccent"/>
-                        </TableRow>
-                        <TableRow
-                            android:layout_weight="7"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent">
-                            <Button
                                 android:id="@+id/buttonSub"
                                 android:layout_weight="1"
                                 android:layout_width="0dp"
@@ -246,7 +232,21 @@
                                 android:background="@color/colorAccent"/>
                         </TableRow>
                         <TableRow
-                            android:layout_weight="1"
+                            android:layout_weight="5"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent">
+                            <Button
+                                android:id="@+id/buttonAdd"
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:text="@string/plus"
+                                android:textColor="@color/colorBlue"
+                                android:textSize="40sp"
+                                android:background="@color/colorAccent"/>
+                        </TableRow>
+                        <TableRow
+                            android:layout_weight="2"
                             android:layout_width="0dp"
                             android:layout_height="match_parent">
                             <Button
